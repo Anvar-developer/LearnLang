@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LearnLang.Maui.MainPage">
+    <Grid ColumnSpacing="20" Margin="40">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button CornerRadius="0"
+            Grid.Row="0"
+            Grid.Column="0"
+            Text="Start"
+            FontSize="30"
+            BackgroundColor="Green"
+            Clicked="OnButtonClickedStart">
+        </Button>
+        <Button CornerRadius="0"
+            Grid.Row="0"
+            Grid.Column="1"
+            Text="Mix"
+            FontSize="30"
+            BackgroundColor="Red"
+            Clicked="OnButtonClickedMix">
+        </Button>
+    </Grid>
+</ContentPage>
