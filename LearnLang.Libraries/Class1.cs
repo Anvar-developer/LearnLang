@@ -9,7 +9,7 @@ namespace LearnLang.Libraries
     sealed public class Words
     {
         // public static Dictionary<string, string> dict = new Dictionary<string, string>();
-        // Добавить новый класс для избежания рекурсии или создать словарь
+        // Добавить новый класс для избежания рекурсии или создать словарь j
         public string Rus { get; set; }
         public string Eng { get; set; }
 
@@ -20,7 +20,7 @@ namespace LearnLang.Libraries
         public static void Parser()
         {
             string path = "Dict.json";
-
+            
             FileInfo fileInfo = new FileInfo(path);
 
             if (fileInfo.Exists)
