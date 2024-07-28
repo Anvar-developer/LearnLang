@@ -8,10 +8,6 @@ namespace LearnLang.Libraries
 {
     static public class Words
     {
-        // public static Dictionary<string, string> dict = new Dictionary<string, string>();
-        // Добавить новый класс для избежания рекурсии или создать словарь j
-        // Создать класс язык
-
         public static Lang[]? word;
 
         public static int Count = 0;
