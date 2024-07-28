@@ -6,14 +6,13 @@ using System.IO;
 
 namespace LearnLang.Libraries
 {
-    sealed public class Words
+    static public class Words
     {
         // public static Dictionary<string, string> dict = new Dictionary<string, string>();
         // Добавить новый класс для избежания рекурсии или создать словарь j
-        public string Rus { get; set; }
-        public string Eng { get; set; }
+        // Создать класс язык
 
-        public static Words[]? word;
+        public static Lang[]? word;
 
         public static int Count = 0;
         public static int Index = 0;
@@ -33,26 +32,26 @@ namespace LearnLang.Libraries
 
                 string jsonString = File.ReadAllText(path);
 
-                word = JsonSerializer.Deserialize<Words[]>(jsonString);
+                word = JsonSerializer.Deserialize<Lang[]>(jsonString);
             }
             else
             {
                 fileInfo.Create();
-                Words[]? words = 
+                Lang[]? words = 
                 {
-                    new Words() 
+                    new Lang() 
                     {
                         Rus = "Стол",
                         Eng = "Table"
                     },
-                    new Words()
+                    new Lang()
                     {
                         Rus = "Мышка",
                         Eng = "Mouse"
                     }
                 };
 
-                File.WriteAllText(path, JsonSerializer.Serialize<Words[]>(words));
+                File.WriteAllText(path, JsonSerializer.Serialize<Lang[]>(words));
             }
         }
 
@@ -60,5 +59,11 @@ namespace LearnLang.Libraries
         {
             Random.Shared.Shuffle(word);
         }
+    }
+
+    sealed public class Lang
+    {
+        public string Rus { get; set; }
+        public string Eng { get; set; }
     }
 }
