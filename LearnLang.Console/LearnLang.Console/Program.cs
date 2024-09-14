@@ -8,7 +8,7 @@ namespace LearnLang.ConsoleApp
     {
         static void Main(string[] args)
         {
-            Words.Parser();
+            Lang.Parser(@"C:\MY\Dict.json");
 
             DefualtForegraundColor();
 
@@ -25,18 +25,18 @@ namespace LearnLang.ConsoleApp
                             goto Exit;
 
                         case "mix":
-                            Words.Mix();
+                            Lang.Mix();
                             break;
                     }
 
-                for (int i = 0; i < Words.word.Length; i++)
+                for (int i = 0; i < Lang.word.Length; i++)
                 {
-                    WriteLine("Введите \"{0}\" по англиски", Words.word[i].Rus);
+                    WriteLine("Введите \"{0}\" по англиски", Lang.word[i].Rus);
                     inputWord = ReadLine();
 
-                    if (inputWord == Words.word[i].Eng)
+                    if (inputWord == Lang.word[i].Eng)
                     {
-                        Words.Count++;
+                        Lang.Count++;
                         ColorWrite("Правильно", ConsoleColor.Green);
                     }
                     else
@@ -45,7 +45,7 @@ namespace LearnLang.ConsoleApp
                     }
                 }
 
-                WriteLine("Кличество верных слов: {0}", Words.Count);
+                WriteLine("Кличество верных слов: {0}", Lang.Count);
             }
         Exit:;
         }

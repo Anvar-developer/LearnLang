@@ -7,18 +7,27 @@ namespace LearnLang.Maui
         public MainPage()
         {
             InitializeComponent();
-            Words.Parser();
+            On();
         }
 
         async void OnButtonClickedMix(object sender, EventArgs args)
         {
-            Words.Mix();
+            Lang.Mix();
         }
 
         async void OnButtonClickedStart(object sender, EventArgs args)
         {
+            Lang.Index = 0;
+            Lang.Count = 0;
             await Navigation.PushAsync(new StartPage());
         }
-    }
 
+        private async void On()
+        {
+            //await DisplayAlert("asd", "asd", "asd");
+            await Task.Delay(1);
+            var r = await FilePicker.Default.PickAsync();
+            Lang.Parser(r.FullPath);
+        }
+    }
 }

@@ -4,49 +4,59 @@ using System.Text.Unicode;
 
 namespace LearnLang.Libraries
 {
-    static public class Words
+    // переписать все методы, которые используют этот класс
+    static public class Lang
     {
-        public static Lang[]? word;
+        public static Words[]? word;
 
         public static int Count = 0;
         public static int Index = 0;
-        public static void Parser()
+
+        public static string? asd;
+
+        public static void Parser(string filePath)
         {
-            string path = "Dict.json";
-            
-            FileInfo fileInfo = new FileInfo(path);
+            string fileName = "Dict.json";
 
-            if (fileInfo.Exists)
+            FileInfo fileInfo = new FileInfo(fileName);
+
+            var options = new JsonSerializerOptions
             {
-                var options = new JsonSerializerOptions
-                {
-                    WriteIndented = true,
-                    Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
-                };
+                WriteIndented = true,
+                Encoder = JavaScriptEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Cyrillic),
+            };
 
-                string jsonString = File.ReadAllText(path);
+            asd = filePath;
 
-                word = JsonSerializer.Deserialize<Lang[]>(jsonString);
-            }
-            else
+            Console.WriteLine(filePath);
+
+            if (!File.Exists(filePath))
             {
-                fileInfo.Create();
-                Lang[]? words = 
+                FileStream fs = File.Create(filePath);
+                fs.Close();
+
+                Words[]? words =
                 {
-                    new Lang() 
+                    new Words()
                     {
                         Rus = "Стол",
                         Eng = "Table"
                     },
-                    new Lang()
+                    new Words()
                     {
                         Rus = "Мышка",
                         Eng = "Mouse"
                     }
                 };
 
-                File.WriteAllText(path, JsonSerializer.Serialize<Lang[]>(words));
+                using (StreamWriter writer = new StreamWriter(filePath, false))
+                {
+                    writer.Write(JsonSerializer.Serialize<Words[]>(words, options));
+                }
             }
+
+            string jsonString = File.ReadAllText(filePath);
+            word = JsonSerializer.Deserialize<Words[]>(jsonString, options);
         }
 
         public static void Mix() 
@@ -55,7 +65,7 @@ namespace LearnLang.Libraries
         }
     }
 
-    sealed public class Lang
+    sealed public class Words
     {
         public string Rus { get; set; }
         public string Eng { get; set; }

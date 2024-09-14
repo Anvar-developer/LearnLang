@@ -46,7 +46,7 @@
             // 
             Start.Anchor = AnchorStyles.None;
             Start.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            Start.Location = new Point(41, 73);
+            Start.Location = new Point(42, 79);
             Start.Name = "Start";
             Start.RightToLeft = RightToLeft.No;
             Start.Size = new Size(159, 151);
@@ -59,7 +59,7 @@
             // 
             Mix.Anchor = AnchorStyles.None;
             Mix.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            Mix.Location = new Point(282, 73);
+            Mix.Location = new Point(283, 79);
             Mix.MinimumSize = new Size(144, 151);
             Mix.Name = "Mix";
             Mix.Size = new Size(144, 151);
@@ -75,7 +75,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(505, 312);
+            panel1.Size = new Size(507, 324);
             panel1.TabIndex = 2;
             // 
             // panel2
@@ -88,7 +88,7 @@
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(505, 312);
+            panel2.Size = new Size(507, 324);
             panel2.TabIndex = 2;
             panel2.Visible = false;
             // 
@@ -149,7 +149,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(505, 312);
+            ClientSize = new Size(507, 324);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "Form1";

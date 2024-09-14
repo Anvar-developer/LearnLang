@@ -3,12 +3,52 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LearnLang.Maui.StartPage"
              Title="StartPage">
-    <VerticalStackLayout VerticalOptions="Center">
-        
-        <HorizontalStackLayout HorizontalOptions="Center">
-            <Button>
-                
-            </Button>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>
+    <Grid ColumnSpacing="20" Margin="40" RowSpacing="20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label
+            x:Name="label1"
+            Grid.ColumnSpan="2" 
+            Grid.Row="0"
+            Grid.Column="0"
+            FontSize="30"
+            Text="Enter text"
+            BackgroundColor="Red">
+        </Label>
+
+        <Button 
+            CornerRadius="0"
+            Grid.Row="1"
+            Grid.Column="0"
+            Text="Validate"
+            FontSize="30"
+            BackgroundColor="Green"
+            Clicked="OnButtonClickedValidate">
+        </Button>
+
+        <Button 
+            CornerRadius="0"
+            Grid.Row="1"
+            Grid.Column="1"
+            Text="Next"
+            FontSize="30"
+            BackgroundColor="Red"
+            Clicked="OnButtonClickedNext">
+        </Button>
+
+        <Editor x:Name="textBox1"
+            Grid.ColumnSpan="2"
+            Grid.Row="2"
+            Grid.Column="0"
+            FontSize="30"
+            BackgroundColor="Orange">
+        </Editor>
+    </Grid>
 </ContentPage>
